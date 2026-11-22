@@ -1,1 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<%# DOMAIN: ganti adblock.nazuaf.com di bawah ini kalau situs pindah domain. %>
+<%- include('partials/head.ejs',
+		{
+			page:'adblock',
+			title:'Nazuaf Privacy & AdBlock Test',
+			description:"Free ad blocker test for browsers, extensions, VPNs and DNS filters. Check uBlock Origin, AdGuard, Pi-hole or NextDNS against 128 ad and tracker hosts in one click.",
+			url: 'adblock.nazuaf.com',
+			canonical: 'https://adblock.nazuaf.com/',
+			preview_thumbnail:'https://adblock.nazuaf.com/assets/preview_toolz.jpg'
+		}) %>
 
+
+
+<body>
+
+    <%- include('partials/header.ejs', {page:'adblock'}) %>
+
+    <main>
+        <noscript>
+            <div class="_bg-red _txt-black _radius _p-1 better_r _py-2 _mt-2">
+                <h3>JavaScript is required to run this test. Please enable JavaScript in your browser settings.</h3>
+                <style>
+                    #m_test {
+                        display: none;
+                    }
+                </style>
+            </div>
+        </noscript>
+        <div id="m_test">
+            <section>
+                <div class="hero_head">
+                    <h1>Nazuaf Privacy Test</h1>
+                    <p>Test your browser, ad blocker, VPN, or DNS filter against ads, trackers, and unwanted scripts.</p>
+                </div>
+                <div class="grid hero_test_grid">
+                    <div>
+                        <div class="lt_wrap">
+                            <div class="lt_particles">
+                                <div class="p1" aria-hidden="true">
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path d='M0 0h24v24H0z' stroke='none' />
+                                        <path d='M18 8a3 3 0 010 6M10 8v11a1 1 0 01-1 1H8a1 1 0 01-1-1v-5' />
+                                        <path d='M12 8h0l4.524-3.77A.9.9 0 0118 4.922v12.156a.9.9 0 01-1.476.692L12 14H4a1 1 0 01-1-1V9a1 1 0 011-1h8' />
+                                    </svg>
+                                </div>
+                                <div class="p2" aria-hidden="true">
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path d='M0 0h24v24H0z' stroke='none' />
+                                        <path d='M4 18V6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2z' />
+                                        <path d='M7 14l3-3 2 2 3-3 2 2' />
+                                    </svg>
+                                </div>
+                                <div class="p3" aria-hidden="true">
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path d='M0 0h24v24H0z' stroke='none' />
+                                        <circle cx='12' cy='5' r='2' />
+                                        <circle cx='5' cy='19' r='2' />
+                                        <circle cx='19' cy='19' r='2' />
+                                        <circle cx='12' cy='14' r='3' />
+                                        <path d='M12 7v4M6.7 17.8l2.8-2M17.3 17.8l-2.8-2' />
+                                    </svg>
+                                </div>
+                                <div class="p4" aria-hidden="true">
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path d='M0 0h24v24H0z' stroke='none' />
+                                        <path d='M9 9V8a3 3 0 016 0v1M8 9h8a6 6 0 011 3v3a5 5 0 01-10 0v-3a6 6 0 011-3M3 13h4M17 13h4M12 20v-6M4 19l3.35-2M20 19l-3.35-2M4 7l3.75 2.4M20 7l-3.75 2.4' />
+                                    </svg>
+                                </div>
+                                <div class="p5" aria-hidden="true">
+                                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                        <path d='M0 0h24v24H0z' stroke='none' />
+                                        <path d='M12 4L4 8l8 4 8-4-8-4M4 12l8 4 8-4M4 16l8 4 8-4' />
+                                    </svg>
+                                </div>
+
+                            </div>
+                            <div class="lt_cwrap">
+                                <div class="lt_circle">
+                                    <div class="lt_wave"></div>
+                                </div>
+                                <div class="lt_value">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="_f-center">
+                        <button id="start_test" aria-label="Run privacy protection test"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh-dot" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4"></path>
+                                <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4"></path>
+                                <circle cx="12" cy="12" r="1"></circle>
+                            </svg> &nbsp; Run Protection Test</button>
+                    </div>
+                    <div class="_f-center">
+                        <div class="card" id="adb_test_r"><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="var(--blue)" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                                    <path stroke="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M11 12a1 1 0 1 0 2 0 1 1 0 1 0-2 0"></path>
+                                    <path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0"></path>
+                                </svg> Total : </span><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke-width="2" stroke="var(--green)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M0 0h24v24H0z" stroke="none"></path>
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <path d="M9 12l2 2 4-4"></path>
+                                </svg> </span><span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke-width="2" stroke="var(--red)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M0 0h24v24H0z" stroke="none"></path>
+                                    <circle cx="12" cy="12" r="9"></circle>
+                                    <path d="M10 10l4 4m0-4l-4 4"></path>
+                                </svg> </span></div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <!-- .notice_stack: info bar (peringatan + ajakan star GitHub). Sponsor lama sudah dihapus di replikasi ini. -->
+                <div class="notice_stack">
+                    <p class="i_box _warn">
+                        <svg class="i_ico" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true">
+                            <path stroke="none" d="M0 0h24v24H0z" />
+                            <path d="M12 9v4m0 3v.01" />
+                            <path d="M10.363 3.591 2.257 17.125a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636-2.871L13.637 3.59a1.914 1.914 0 0 0-3.274 0z" />
+                        </svg>
+                        <span>Some setups, like Firefox with uBlock Origin, can skew results.</span>
+                        <button class="i_cta" data-a11y-dialog-show="dlg_compatibility">See the tested setups</button>
+                    </p>
+                    <a class="i_box _info" href="https://github.com/Ozanxzan" target="_blank" rel="noopener noreferrer" aria-label="Star this project on GitHub (opens in a new tab)">
+                        <svg class="i_ico _fill" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+                            <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z" />
+                        </svg>
+                        <span>This test is free and open source. A star helps more people find it.</span>
+                        <span class="i_cta">Star on GitHub</span>
+                    </a>
+                </div>
+            </section>
+            <section id="adb_test">
+                <div class="grid">
+                    <div id="cf_wrap">
+                        <div class="test_card">
+                            <h2>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M0 0h24v24H0z" stroke="none" />
+                                    <circle cx="12" cy="12" r="2" />
+                                    <path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7" />
+                                </svg>
+                                &nbsp; Visual Ad Protection
+                            </h2>
+                            <div class="row keep-width">
+                                <div>
+                                    <div id="ct_static" class="test_block _aos">
+                                        <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round'>
+                                            <path d='M0 0h24v24H0z' stroke='none' />
+                                            <rect x='3' y='5' width='18' height='14' rx='2' />
+                                            <path d='M7 15v-4a2 2 0 014 0v4m-4-2h4m6-4v6h-1.5a1.5 1.5 0 111.5-1.5' />
+                                        </svg>
+                                        &nbsp;
+                                        Static Ad Element
+                                        <!-- ADPROBE: elemen terukur tes kosmetik. Jangan sembunyikan dengan display:none dan jangan ubah class umpannya — tes mengukur offsetHeight elemen ini. -->
+                                        <div id="cts_test" class="textads adsbox banner_ads adbox ADBox AdBox adbox-wrapper adSocial ">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div id="ct_dynamic" class="test_block _aos">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M11.933 5h-6.933v16h13v-8"></path>
+                                            <path d="M14 17h-5"></path>
+                                            <path d="M9 13h5v-4h-5z"></path>
+                                            <path d="M15 5v-2"></path>
+                                            <path d="M18 6l2 -2"></path>
+                                            <path d="M19 9h2"></path>
+                                        </svg>
+                                        &nbsp;
+                                        Dynamic Ad Element
+                                        <div id="ctd_test"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div>
+                                <details>
+                                    <summary>Why does the Cosmetic Filter test fail?</summary>
+                                    <div class="better_r _p-1">
+                                        <p>
+                                            If the cosmetic filter test fails, it means this site (adblock.nazuaf.com) is not included
+                                            in your blocker's filter lists.<br>
+                                            This does not mean cosmetic filtering fails everywhere. You can confirm this by
+                                            visiting a popular, ad-rich site where you're unlikely to see any ad boxes.<br>
+                                            This test checks whether the blocking feature works, not how broad its coverage is.
+                                            Adding the following rules to your adblock solution may fix the result:
+                                        </p>
+
+                                        <pre>
+											<code>adblock.nazuaf.com##.adbox.banner_ads.adsbox
+adblock.nazuaf.com##.textads</code></pre>
+                                        <b>With these rules in place, a passing result proves your blocker supports cosmetic filtering.</b>
+                                    </div>
+                                </details>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="sl_wrap">
+                        <div class="test_card">
+                            <h2>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-script" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M17 20h-11a3 3 0 0 1 0 -6h11a3 3 0 0 0 0 6h1a3 3 0 0 0 3 -3v-11a2 2 0 0 0 -2 -2h-10a2 2 0 0 0 -2 2v8">
+                                    </path>
+                                </svg>
+                                &nbsp; Script Protection
+                            </h2>
+                            <div class="row keep-width">
+                                <div class="col-6">
+                                    <div id="sfa_1" class="test_block _aos">
+                                        ads.js
+                                        <script defer src="./js/widget/ads.js"></script>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div id="sfa_2" class="test_block _aos">
+                                        pagead.js
+                                        <script defer src="./js/pagead.js"></script>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <details>
+                                    <summary>Why does the Ad Script Loading test fail?</summary>
+                                    <div class="better_r _p-1">
+                                        <p>
+                                            Same as the cosmetic test. If an ad script load test fails, it usually means this site
+                                            is not covered by your blocker's filter lists, especially for blocking ad-related scripts like the fake
+                                            <code>ads.js</code><br>
+                                            This does not indicate a general failure of ad script blocking. To check, visit a popular
+                                            website known for its abundance of ad scripts: chances are you won't encounter any
+                                            unblocked ones.<br>
+                                            This test evaluates whether ad script blocking works, not its scope or effectiveness.
+                                            To potentially fix the result, add the following rules to your adblock solution:
+                                        </p>
+                                        <pre><code>/pagead.js$domain=adblock.nazuaf.com
+/widget/ads.</code></pre>
+                                        <b>With these rules in place, a passing result proves your blocker supports ad script blocking.</b>
+                                    </div>
+                                </details>
+
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div>
+                        <div id="test" class="test_wrapper"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <%# Rendered at build time from the same data the test runs on, so the copy and
+        the test can never drift apart. This is also the only place a crawler that does
+        not execute JavaScript can see what the Host category actually checks.
+        Each require() must stay on its own single line: template-ejs-loader rewrites
+        the path only when require() and the EJS tags share a line. %>
+        <% const adblock_data = require('./data/adblock_data.json') %>
+        <% const CATEGORY_LABELS = require('./data/category_labels.json') %>
+        <%
+        const categories = Object.keys(adblock_data).map((key) => {
+            const brands = Object.keys(adblock_data[key])
+            const hosts = brands.reduce((n, b) => n + adblock_data[key][b].length, 0)
+            return { key: key, label: CATEGORY_LABELS[key] || key, brands: brands, hosts: hosts }
+        })
+        const totalHosts = categories.reduce((n, c) => n + c.hosts, 0)
+        const totalBrands = categories.reduce((n, c) => n + c.brands.length, 0)
+        %>
+        <section class="seo_content better_r">
+            <h2>What this ad blocker test checks</h2>
+            <p>Three independent checks, scored together. No real ads or trackers are ever loaded.</p>
+            <div class="checks_grid row keep-width">
+                <div>
+                    <div class="card _h-100">
+                        <h3>Cosmetic filters</h3>
+                        <p>Two ad-shaped elements, one static and one added after load. The test measures whether your blocker removes or hides them.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card _h-100">
+                        <h3>Ad script loading</h3>
+                        <p>Two decoy scripts named <code>ads.js</code> and <code>pagead.js</code>. The test measures whether they were stopped from running.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card _h-100">
+                        <h3>Host and DNS blocking</h3>
+                        <p><%= totalHosts %> hostnames across <%= totalBrands %> ad, analytics, tracking and telemetry services. This is the only category a DNS filter can score on.</p>
+                    </div>
+                </div>
+            </div>
+            <h3 class="hosts_head">The <%= totalHosts %> hosts, by category</h3>
+            <ul class="hosts_list">
+                <% categories.forEach(function (c) { %>
+                <li>
+                    <b><%= c.label %></b>
+                    <span class="hosts_count"><%= c.hosts %> hosts</span>
+                    <span class="hosts_brands"><%= c.brands.join(', ') %></span>
+                </li>
+                <% }) %>
+            </ul>
+        </section>
+        <section class="seo_content better_r">
+            <h2>Testing a DNS filter: Pi-hole, AdGuard Home, NextDNS, AdGuard DNS or Control D</h2>
+            <p>A DNS filter blocks domains, so it can only pass the Host category. Here is the score to expect and how to read it.</p>
+            <div class="dns_grid row keep-width">
+                <div>
+                    <div class="card _h-100">
+                        <h3>What a good Pi-hole score looks like</h3>
+                        <p>A DNS filter on its own answers <%= totalHosts %> of the <%= totalHosts + 4 %> checks, so <b>roughly 40&ndash;60% is the correct result</b>, not a failure. The four cosmetic and script checks need a browser extension, which no DNS resolver can do. If you want to know whether your Pi-hole is working, look at the Host category, not the total.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card _h-100">
+                        <h3>Turn the block page off first</h3>
+                        <p>Pi-hole, AdGuard Home and NextDNS can answer a blocked domain with their own block page instead of dropping the request. To this test that looks like a <em>successful</em> connection, so your score drops even though the domain was blocked. Set the blocking mode to NXDOMAIN or NULL and re-run.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card _h-100">
+                        <h3>Getting to a full score</h3>
+                        <p>Pair the DNS filter with a browser extension such as uBlock Origin or the AdGuard extension. The DNS layer covers the hosts, the extension covers the cosmetic filters and the ad scripts. That combination is what scores green here.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="dns_note">Written Pi-hole, pi-hole or pihole &mdash; all the same thing, and the same advice applies to AdGuard Home, AdGuard DNS, Control D, Quad9 and any other resolver-level blocker. The test cannot see per-client rules, regex filters or allowlists &mdash; only whether the <%= totalHosts %> hostnames above resolved.</p>
+        </section>
+        <section class="seo_content better_r">
+            <h2>Ad blocker test FAQ</h2>
+            <p>Answers about how the test works, what your score means, and how to improve it.</p>
+            <div class="faq_list">
+                <details>
+                    <summary>How does the ad blocker test work?</summary>
+                    <div>One click runs three independent checks and scores how much of your setup blocks ads and trackers. No real ads or trackers are ever loaded during the test.</div>
+                </details>
+                <details>
+                    <summary>My ad blocker is configured correctly but the test does not work. Why?</summary>
+                    <div>Your configuration may not be compatible with the type of checks this tool performs. This does not mean your ad blocker is not providing protection. JavaScript limitations or missing features may prevent the test from accurately determining blocked connections. You will still receive an estimate of the percentage of connections blocked.
+                        <div class="_py-1"><button data-a11y-dialog-show="dlg_compatibility">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-info-square" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                    <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                    <polyline points="11 12 12 12 12 16 13 16"></polyline>
+                                </svg> Check compatibility</button></div>
+                    </div>
+                </details>
+                <details>
+                    <summary>How can I get 100% on the ad blocker test?</summary>
+                    <div>A green score indicates satisfactory protection and there is no need to aim for 100%. However, if you want a perfect score, you can use the Nazuaf Host List which covers most of the host tests on the site (excluding cosmetic filters and script loading).
+                        <div class="grid keep-width _mt-1">
+                            <div>
+                                <button class="btn-blue" id="hostListTxt">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                                        <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                                    </svg>
+                                    Nazuaf Host List (TXT)</button>
+                            </div>
+                            <div>
+                                <button class="btn-blue" id="hostListAdblock">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                                        <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+                                    </svg>
+                                    Nazuaf Host List (ADBLOCK)</button>
+                            </div>
+                        </div>
+                    </div>
+                </details>
+                <%- include('partials/adblock/faq.ejs') %>
+            </div>
+        </section>
+    <div class="nazuaf-bottom"><div class="nazuaf-attribution">Based on AdBlockTest by TurtleCute · Originally forked from d3ward/toolz · Modified by Nazuaf</div><div><strong>Nazuaf AdBlock Test</strong> · Privacy testing without the noise.</div><div class="nazuaf-license"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="license noopener noreferrer">[NC-SA-4.0]</a></div></div>
+    </main>
+    <%- include('partials/adblock/results.ejs') %>
+    <% const adblock_compatibility = require('./data/adblock_compatibility.json') %>
+    <div class="dialog" id="dlg_compatibility" data-a11y-dialog="dlg_compatibility" aria-labelledby="dlg_compatibility-title" aria-hidden="true">
+        <div class="dialog-overlay" data-a11y-dialog-hide></div>
+        <div class="dialog-content">
+            <header>
+                <h3 id="dlg_compatibility-title">Tested setups</h3>
+                <button data-a11y-dialog-hide aria-label="Close compatibility table dialog"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg></button>
+            </header>
+            <%
+            const PLATFORM = { macos: 'macOS', ios: 'iOS', android: 'Android', windows: 'Windows', windows11: 'Windows 11', 'linux(mint)': 'Linux' }
+            const BROWSER = { brave: 'Brave', safari: 'Safari', chrome: 'Chrome', firefox: 'Firefox', edge: 'Edge', kiwibrowser: 'Kiwi' }
+            function prettyLabel(token) {
+                const i = token.lastIndexOf('-')
+                if (i > 0) {
+                    const b = token.slice(0, i)
+                    const p = token.slice(i + 1)
+                    if (BROWSER[b] && PLATFORM[p]) return BROWSER[b] + ' on ' + PLATFORM[p]
+                }
+                if (PLATFORM[token]) return PLATFORM[token]
+                const words = token.replace(/-/g, ' ')
+                return words.charAt(0).toUpperCase() + words.slice(1)
+            }
+            const RANK = { ok: 0, mixed: 1, bad: 2 }
+            const STATE_LABEL = { ok: 'Test works', mixed: 'Some limits', bad: 'Cannot test' }
+            const ICON = { dns: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M3 12a9 9 0 1 0 18 0 9 9 0 1 0-18 0M3.6 9h16.8M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/></svg>` }
+            const kinds = [
+                { state: 'mixed', icon: ICON.dns, name: 'Pi-hole, AdGuard Home and other DNS filters', type: 'Pi-hole, AdGuard Home, AdGuard DNS, NextDNS, Control D, Quad9', desc: 'Not tested one by one. A DNS filter can only answer the Host category, so roughly 40–60% is the correct result for one on its own, not a failure. If the filter replies with its own block page instead of dropping the request, that looks like a successful connection here and the score drops further — set the blocking mode to NXDOMAIN or NULL. Add a browser extension to cover the cosmetic and script checks.' }
+            ]
+            const products = Object.keys(adblock_compatibility)
+                .filter((k) => k !== 'default' && adblock_compatibility[k].hidden !== true)
+                .map((k) => {
+                    const v = adblock_compatibility[k]
+                    const ok = v['no-issues'] || []
+                    const mixed = v['m-issues'] || []
+                    const bad = v['issues'] || []
+                    const state = ok.length === 0 ? 'bad' : mixed.length || bad.length ? 'mixed' : 'ok'
+                    const type = v.name.toLowerCase().includes(v.type.toLowerCase()) ? '' : v.type
+                    return { state: state, icon: v.icon, name: v.name, type: type, ok: ok, mixed: mixed, note: v.note }
+                })
+            const rows = kinds.concat(products).sort((a, b) => RANK[a.state] - RANK[b.state])
+            %>
+            <section>
+                <div class="compat_wrap">
+                    <p class="compat_lead">Green means the test can measure that setup. Yellow and red only mean the test cannot see everything. Your blocker can still protect you well.</p>
+                    <ul class="compat_list">
+                        <% rows.forEach(function (r) { %>
+                        <li class="compat_item">
+                            <span class="compat_ico" aria-hidden="true"><%- r.icon %></span>
+                            <span class="compat_head">
+                                <b class="compat_name"><%= r.name %></b>
+                                <% if (r.type) { %><span class="compat_type"><%= r.type %></span><% } %>
+                            </span>
+                            <span class="compat_state _<%= r.state %>"><%= STATE_LABEL[r.state] %></span>
+                            <span class="compat_body">
+                                <% if (r.desc) { %>
+                                <span class="compat_on"><%= r.desc %></span>
+                                <% } %>
+                                <% if (r.ok && r.ok.length) { %>
+                                <span class="compat_on"><span>Works on</span> <%= r.ok.map(prettyLabel).join(', ') %></span>
+                                <% } %>
+                                <% if (r.mixed && r.mixed.length) { %>
+                                <span class="compat_on"><span>Unreliable on</span> <%= r.mixed.map(prettyLabel).join(', ') %></span>
+                                <% } %>
+                                <% if (r.state !== 'ok' && r.note && r.note.trim()) { %>
+                                <span class="compat_note"><%- r.note %></span>
+                                <% } %>
+                            </span>
+                        </li>
+                        <% }) %>
+                    </ul>
+                    <p class="compat_lead">Two blockers at the same time can also give a wrong score.</p>
+                </div>
+            </section>
+            <footer>
+                <button data-a11y-dialog-hide aria-label="Close dialog">
+                    Close
+                </button>
+            </footer>
+        </div>
+    </div>
+    <%- include('partials/adblock/changelog.ejs') %>
+    <%- include('partials/adblock/logs.ejs') %>
+
+
+    <%- include('partials/gotop.ejs') %>
+
+</body>
+
+</html>
