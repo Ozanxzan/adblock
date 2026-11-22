@@ -1,1 +1,117 @@
+<%# template-ejs-loader only rewrites a require() that shares its line with the
+	EJS tags, so this has to stay on one line and outside the block below. %>
+<% const pkg = require('./package.json') %>
+<%
+	const pageUrl = typeof canonical !== 'undefined' && canonical ? canonical : `https://${url}`
+	const socialImage = typeof preview_thumbnail !== 'undefined' && preview_thumbnail ? preview_thumbnail : 'https://adblock.nazuaf.com/assets/preview_toolz.jpg'
+	const imageAlt = typeof image_alt !== 'undefined' && image_alt ? image_alt : 'AdBlockTest score ball showing the result of an ad blocker test'
+	const isIndexable = typeof noindex === 'undefined' || !noindex
+	const SITE_URL = 'https://adblock.nazuaf.com/'
+	const APP_NAME = 'Nazuaf Privacy Test'
+	// One @graph so the app, the site and the person are a single connected entity
+	// instead of four unlinked "Nazuaf" assertions. Serialised through
+	// JSON.stringify because EJS interpolation is an HTML escaper: it would turn
+	// an apostrophe in title or description into &#39; inside a JSON string value,
+	// which JSON.parse still accepts, so no validator would ever flag it.
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'WebSite',
+				'@id': SITE_URL + '#website',
+				name: APP_NAME,
+				alternateName: 'Ad Blocker Test',
+				url: SITE_URL,
+				inLanguage: 'en',
+				publisher: { '@id': 'https://nazuaf.com/#person' }
+			},
+			{
+				'@type': 'Person',
+				'@id': 'https://nazuaf.com/#person',
+				name: 'Nazuaf',
+				url: 'https://nazuaf.com',
+				sameAs: [
+					'https://github.com/Ozanxzan',
+					'https://nazuaf.com'
+				]
+			},
+			{
+				'@type': 'WebApplication',
+				'@id': pageUrl + '#app',
+				name: APP_NAME,
+				alternateName: 'Ad Blocker Test',
+				description: description,
+				url: pageUrl,
+				isPartOf: { '@id': SITE_URL + '#website' },
+				applicationCategory: 'UtilitiesApplication',
+				applicationSubCategory: 'Ad blocker, tracker blocker and DNS filter testing',
+				operatingSystem: 'Any',
+				browserRequirements: 'Requires JavaScript. Requires HTML5.',
+				isAccessibleForFree: true,
+				offers: {
+					'@type': 'Offer',
+					price: '0',
+					priceCurrency: 'USD'
+				},
+				author: { '@id': 'https://nazuaf.com/#person' },
+				maintainer: { '@id': 'https://nazuaf.com/#person' },
+				publisher: { '@id': 'https://nazuaf.com/#person' },
+				image: socialImage,
+				featureList: [
+					'Cosmetic filter testing',
+					'Ad script blocking checks',
+					'Host and DNS filter coverage checks',
+					'Pi-hole, AdGuard Home and NextDNS scoring guidance',
+					'Detailed browser and blocker compatibility results'
+				],
+				inLanguage: 'en',
+				softwareVersion: pkg.version
+			}
+		]
+	}
+%>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#161625">
+	<% if (!isIndexable) { %>
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+	<% } else { %>
+	<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<% } %>
 
+	<link rel="icon" href="https://media.nazuaf.com/2026/10/favicon.ico" type="image/x-icon">
+	<% if (typeof canonical !== 'undefined' && canonical) { %><link rel="canonical" href="<%= canonical %>"><% } %>
+    <title><%= title %></title>
+  	<meta name="author" content="Nazuaf">
+	<meta name="description" content="<%= description %>">
+
+	<% if (isIndexable) { %>
+	<!-- Open Graph Tags -->
+	<meta property="og:url" content="<%= pageUrl %>">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="<%= title %>">
+	<meta property="og:description" content="<%= description %>">
+	<meta property="og:image" content="<%= socialImage %>">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="630">
+	<meta property="og:image:alt" content="<%= imageAlt %>">
+	<meta property="og:site_name" content="Nazuaf Privacy Test">
+	<meta property="og:locale" content="en_US">
+
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:url" content="<%= pageUrl %>">
+	<meta name="twitter:title" content="<%= title %>">
+	<meta name="twitter:description" content="<%= description %>">
+	<meta name="twitter:image" content="<%= socialImage %>">
+	<meta name="twitter:image:alt" content="<%= imageAlt %>">
+
+	<!-- Structured Data (JSON-LD) -->
+	<script type="application/ld+json"><%- JSON.stringify(jsonLd) %></script>
+
+	<% } %>
+
+
+</head>
