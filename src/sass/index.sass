@@ -1,1 +1,601 @@
+@charset "utf-8"
 
+@use "./settings/variables" as *
+@use "./theme/light"
+@use "./theme/dark"
+
+@use "./base/basic"
+@use "./extra/aos"
+@use "./elements/typography"
+
+@use "./layout/navbar"
+@use "./layout/aside"
+@use "./layout/header"
+@use "./layout/container"
+@use "./layout/grid"
+@use "./layout/footer"
+
+@use "./elements/button"
+@use "./components/snackbar"
+@use "./components/card"
+@use "./elements/form"
+@use "./elements/code"
+@use "./components/dropdown"
+@use "./components/modal"
+@use "./components/gotop_link"
+@use "./components/details"
+@use "./elements/table"
+@use "./components/tabs"
+@use "./extra/tooltip"
+@use "./extra/pages"
+@use "./extra/seo"
+@use "./extra/alert"
+
+@use "./utilities/alignment"
+@use "./utilities/background"
+@use "./utilities/position"
+@use "./utilities/border"
+@use "./utilities/display"
+@use "./utilities/margin"
+@use "./utilities/general"
+@use "./utilities/padding"
+@use "./utilities/spacer"
+@use "./utilities/text"
+@use "./utilities"
+
+main
+	min-height: 100vh
+	--bg-details: var(--bg3)
+#start_test, #adb_test_r
+	width: 100%
+	max-width: 12rem
+.hero_test_grid
+	@media (max-width: 40em)
+		>div
+			padding-top: .35rem
+			padding-bottom: .35rem
+	@media (max-width: 40em) and (max-height: 720px)
+		>div
+			padding-top: .25rem
+			padding-bottom: .25rem
+// .notice_stack menampung info bar (peringatan + ajakan star GitHub).
+// Sponsor lama sudah dihapus di replikasi ini.
+.notice_stack
+	display: flex
+	flex-direction: column
+	gap: var(--sp-3)
+	padding: var(--sp-3) var(--sp-1) var(--sp-1)
+// One info bar, two variants: _warn for the test caveat, _info for the star ask
+.i_box
+	display: flex
+	align-items: center
+	flex-wrap: wrap
+	gap: var(--sp-1) var(--sp-2)
+	margin: 0
+	padding: var(--sp-1) var(--sp-2)
+	border-radius: var(--r-md)
+	border: 1px solid
+	font-size: .875rem
+	line-height: 1.5
+	text-align: left
+	text-decoration: none
+	color: var(--txt)
+	transition: border-color 160ms ease
+	&._warn
+		--i-brd: var(--notice-brd)
+		--i-ac: var(--notice-ac)
+		background: var(--notice-bg)
+	&._info
+		--i-brd: var(--info-brd)
+		--i-ac: var(--info-ac)
+		background: var(--info-bg)
+	border-color: var(--i-brd)
+	&:hover
+		border-color: var(--i-ac)
+	>span:not(.i_cta)
+		flex: 1 1 16rem
+		min-width: 0
+	@media (max-width: 40em)
+		align-items: flex-start
+.i_ico
+	flex: 0 0 auto
+	height: 1.1rem
+	width: 1.1rem
+	margin-top: .1rem
+	stroke: var(--i-ac)
+	&._fill
+		fill: var(--i-ac)
+.i_cta
+	flex: 0 0 auto
+	justify-content: flex-start
+	margin: 0
+	margin-left: auto
+	padding: 0
+	border: 0
+	height: auto
+	min-width: unset
+	background: transparent
+	box-shadow: none
+	font: inherit
+	font-weight: 600
+	white-space: nowrap
+	color: var(--i-ac)
+	&:active
+		transform: none
+	&:hover, .i_box:hover &
+		text-decoration: underline
+		text-decoration-thickness: 1px
+		text-underline-offset: .2em
+	@media (max-width: 40em)
+		flex: 1 1 100%
+		margin-left: calc(1.1rem + var(--sp-2))
+
+#dlg_compatibility
+	z-index: 52
+.compat_wrap
+	display: flex
+	flex-direction: column
+	gap: var(--sp-2)
+.compat_lead
+	font-size: .875rem
+	line-height: 1.5
+	color: var(--txt-h)
+.compat_list
+	display: flex
+	flex-direction: column
+	gap: var(--sp-1)
+	padding: 0
+	list-style: none
+.compat_item
+	display: grid
+	grid-template-columns: auto 1fr auto
+	grid-template-areas: "ico head state" ". body body"
+	align-items: start
+	gap: .15rem var(--sp-2)
+	padding: var(--sp-2)
+	border-radius: var(--r-md)
+	background: var(--bg2)
+	border: 1px solid var(--brd)
+	@media (max-width: 40em)
+		grid-template-columns: auto 1fr
+		grid-template-areas: "state state" "ico head" ". body"
+.compat_ico
+	grid-area: ico
+	display: flex
+	align-items: center
+	justify-content: center
+	height: 1.75rem
+	width: 1.75rem
+	border-radius: var(--r-sm)
+	background: var(--bg)
+	>svg
+		height: 1.15rem
+		width: 1.15rem
+.compat_body
+	grid-area: body
+	min-width: 0
+	display: flex
+	flex-direction: column
+	gap: .2rem
+.compat_head
+	grid-area: head
+	min-width: 0
+	display: flex
+	align-items: baseline
+	flex-wrap: wrap
+	gap: .4rem
+	min-height: 1.75rem
+.compat_name
+	font-weight: 600
+.compat_type, .compat_note
+	font-size: .8rem
+	color: var(--txt-h)
+.compat_note
+	line-height: 1.45
+.compat_on
+	font-size: .875rem
+	line-height: 1.45
+	>span
+		color: var(--txt-h)
+.compat_state
+	grid-area: state
+	align-self: center
+	@media (max-width: 40em)
+		justify-self: end
+		margin-bottom: .2rem
+	font-size: .75rem
+	font-weight: 600
+	white-space: nowrap
+	padding: .2rem .55rem
+	border-radius: 2rem
+	&._ok
+		background: var(--green-h)
+		color: var(--green-d)
+	&._mixed
+		background: var(--notice-bg)
+		color: var(--notice-ac)
+	&._bad
+		background: var(--red-h)
+		color: var(--red-d)
+#adb_test
+	display: none
+	&.measuring
+		display: flex !important
+		visibility: hidden
+		position: fixed
+		top: -9999px
+		left: 0
+		width: 100vw
+
+footer>div
+	background: var(--bg2)
+.card
+	border-radius: var(--r-md)
+	box-shadow: none
+	background: var(--bg2)
+.test_block,.test>span
+	border-radius: var(--radius)
+	position: relative
+	min-height: 45px
+	width: 100%
+.test_block
+	text-align: center
+	margin: 0
+	display: flex
+	align-items: center
+	justify-content: center
+	color: var(--txt)
+	background: var(--bg)
+	border: 1px solid var(--brd)
+	transition: background-color 320ms ease, border-color 320ms ease, color 320ms ease
+#test_log
+	height: 200px
+	overflow-y: auto
+	flex-wrap: nowrap
+.test_wrapper
+	display: flex
+	flex-direction: column
+	gap: .5rem
+.test_wrapper .col-6
+	gap: 1rem
+	display: flex
+	flex-direction: column
+.test_wrapper>div,.test_card
+	padding: var(--sp-2)
+	border-radius: var(--r-md)
+	background: var(--bg2)
+	border: 1px solid var(--brd)
+	transition: border-color 180ms ease, box-shadow 180ms ease
+.test_wrapper svg,.test_card svg
+	height: 1.5rem
+.test_wrapper>div>div>h2,.test_card>h2,.test>span
+	text-align: center
+	margin: 0
+	display: flex
+	align-items: center
+	justify-content: center
+.test_wrapper>div>div>h2,.test_card>h2
+	font-size: 1.2em
+	font-weight: 600
+.test
+	background-color: var(--red)
+	color: var(--black)
+	border-radius: var(--r-sm)
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	text-align: center
+	margin: 10px
+	min-height: 45px
+	transition: background-color 1s, color 1s
+
+.test.is-open
+	background-color: var(--green)
+
+.test.is-blocked
+	background-color: var(--red)
+
+.test>div>div
+	height: 45px
+	width: 100%
+	border-radius: var(--r-sm)
+	background: var(--bg2)
+	color: var(--txt)
+	padding: 0.5rem
+	display: flex
+	align-items: center
+	gap: 0.5rem
+.test>div>div>span
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+	width: 100%
+	text-align: left
+.test>div
+	position: relative
+	user-select: none
+	display: none
+	flex-direction: column
+	overflow-x: auto
+	gap: 0.5rem
+	padding: 0.5rem
+	width: 100%
+	white-space: nowrap
+	color: var(--txt)
+.test.show>div
+	display: flex
+
+#results
+	background-color: var(--bg-card)
+	border: 1px solid var(--brd)
+	bottom: 1em
+	font-size: 24px
+	left: 1em
+	padding: 4px 8px
+	position: fixed
+.epic_path1, .epic_path
+	fill: var(--primary)
+.epic
+	width: 250px
+	height: 250px
+
+.lt_wrap
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+.lt_particles
+	width: 15rem
+	height: 7.5rem
+	display: flex
+	justify-content: center
+	align-items: center
+	flex-direction: row
+	gap: 16px
+.start .p1
+	animation: p1 1.6s cubic-bezier(.2, .4, .35, 1) .2s infinite backwards
+.start .p2
+	animation: p2 1.5s cubic-bezier(.2, .4, .35, 1) .2s infinite backwards
+.start .p3
+	animation: p3 1.6s cubic-bezier(.2, .4, .35, 1) .2s infinite backwards
+.start .p4
+	animation: p4 1.4s cubic-bezier(.2, .4, .35, 1) .2s infinite backwards
+.start .p5
+	animation: p5 1.2s cubic-bezier(.2, .4, .35, 1) .2s infinite backwards
+.p1,.p2,.p3,.p4,.p5
+	padding: 4px
+	height: 32px
+	width: 32px
+	border-radius: 50%
+.p1
+	background: var(--blue-h)
+	color: var(--blue)
+.p2
+	background: var(--green-h)
+	color: var(--green)
+.p3
+	background: var(--orange-h)
+	color: var(--orange)
+.p5
+	background: var(--purple-h)
+	color: var(--purple)
+.p4
+	background: var(--red-h)
+	color: var(--red)
+@keyframes p1
+	0%
+		transform: translateY(0px) translateX(-20px) scale(.8)
+		opacity: 0
+	50%
+		transform: translateY(40px) translateX(0px) scale(1)
+		opacity: 1
+		animation-timing-function: cubic-bezier(1, .4, .35, 1)
+	75%
+		transform: translateY(100px) translateX(10px) scale(1)
+		opacity: 0
+	100%
+		transform: translateY(0px) translateX(-10px) scale(.8)
+		opacity: 0
+
+@keyframes p2
+	0%
+		transform: translateY(0px) translateX(-10px) scale(.8)
+		opacity: 0
+	50%
+		transform: translateY(50px) translateX(0px) scale(1)
+		opacity: 1
+		animation-timing-function: cubic-bezier(1, .4, .35, 1)
+	75%
+		transform: translateY(80px) translateX(5px) scale(1)
+		opacity: 0
+	100%
+		transform: translateY(0px) translateX(5px) scale(.8)
+		opacity: 0
+
+@keyframes p3
+	0%
+		transform: translateY(0px) scale(.8) rotate(45deg)
+		opacity: 0
+	50%
+		transform: translateY(40px) scale(1) rotate(0deg)
+		opacity: 1
+		animation-timing-function: cubic-bezier(1, .4, .35, 1)
+	75%
+		transform: translateY(100px) scale(1) rotate(0deg)
+		opacity: 0
+	100%
+		transform: translateY(0px) scale(.8) rotate(0deg)
+		opacity: 0
+
+@keyframes p4
+	0%
+		transform: translateY(0px) translateX(10px) scale(.8)
+		opacity: 0
+	50%
+		transform: translateY(60px) translateX(0px) scale(1)
+		opacity: 1
+		animation-timing-function: cubic-bezier(1, .4, .35, 1)
+	75%
+		transform: translateY(100px) translateX(0px) scale(1)
+		opacity: 0
+	100%
+		transform: translateY(0px) translateX(10px) scale(.8)
+		opacity: 0
+
+@keyframes p5
+	0%
+		transform: translateY(0px) translateX(20px) scale(.8)
+		opacity: 0
+	50%
+		transform: translateY(50px) translateX(0px) scale(1)
+		opacity: 1
+		animation-timing-function: cubic-bezier(1, .4, .35, 1)
+	75%
+		transform: translateY(90px) translateX(0px) scale(1)
+		opacity: 0
+	100%
+		transform: translateY(0px) translateX(20px) scale(.8)
+		opacity: 0
+// First-paint defaults, before any test has produced a number. These must stay
+// neutral: a red "BAD" pill under the H1 is a verdict the test has not reached
+// yet, and it was visible for the first ~2 s of every visit. set_liquid()
+// overwrites all three on the first result.
+:root
+	--liquid-percentage: 45%
+	--liquid-title: ""
+	--liquid-color: var(--bg3)
+
+.r_wrap span
+	display: flex
+	align-items: center
+	gap: 0.5rem
+
+.lt_template .lt_circle
+	width: 60px
+	height: 60px
+.template_wrap.row>div
+	justify-content: center
+	gap: .5rem
+	align-items: center
+	display: flex
+	flex-direction: column
+.lt_value_2
+	border-radius: var(--r-sm)
+	color: var(--black)
+	padding: .4rem
+
+.lt_cwrap
+	position: relative
+	border-radius: 50rem
+	background-color: var(--bg2)
+
+.lt_circle
+	width: 200px
+	height: 200px
+	// Reclaim the vertical space the hero subtitle now occupies on phones, so the
+	// Also gives the
+	// score pill (positioned at left:100% of this circle) room on narrow screens.
+	@media (max-width: 40em)
+		width: 168px
+		height: 168px
+	background: var(--liquid-color)
+	border: 3px solid var(--black-h)
+	border-radius: 50%
+	overflow: hidden
+	clip-path: border-box
+	z-index: 5
+
+.lt_wave
+	position: relative
+	top: var(--liquid-percentage)
+	width: 100%
+	height: 100%
+	background: var(--liquid-color)
+	border-radius: 50%
+	transition: 3s
+
+.lt_wave:before,
+.lt_wave:after
+	content: ''
+	position: absolute
+	width: 200%
+	height: 200%
+	left: 50%
+	-webkit-transform: translate(-50%, -75%)
+	transform: translate(-50%, -75%)
+	background: var(--black)
+
+.lt_wave:before
+	border-radius: 45%
+	background: var(--bg2)
+	animation: animate_lt_wave 6s linear infinite
+
+.lt_wave:after
+	border-radius: 40%
+	opacity: .5
+	background: var(--bg2)
+	animation: animate_lt_wave 10s linear infinite
+
+@keyframes animate_lt_wave
+	0%
+		transform: translate(-50%, -75%) rotate(0deg)
+	100%
+		transform: translate(-50%, -75%) rotate(360deg)
+
+.lt_cwrap .lt_value
+	position: absolute
+	height: 100%
+	right: 0
+	bottom: 0
+	width: 100%
+
+.lt_cwrap .lt_value::after,
+.lt_cwrap .lt_value::before
+	content: var(--liquid-title)
+	position: inherit
+	left: 100%
+	margin-left: 10px
+	bottom: calc(50% - var(--liquid-percentage))
+	transform: translateY(50%)
+	background: var(--liquid-color)
+	color: var(--black)
+	padding: 10px
+	font-size: 20px
+	font-weight: bold
+	border-radius: var(--r-sm)
+	transition: 3s
+
+.lt_cwrap .lt_value::after
+	content: ''
+	border: 12px solid transparent
+	border-right-color: var(--liquid-color)
+	padding: 0
+	border-radius: 0
+	background: transparent
+	transform: translate(-78%, 50%)
+
+#dlg_faq p
+	-moz-osx-font-smoothing: grayscale
+	-webkit-font-smoothing: antialiased!important
+	margin-top: 1rem
+#adb_test_r>span
+	display: flex
+	align-items: center
+	gap: .5rem
+
+@media (prefers-reduced-motion: reduce)
+	.start .p1, .start .p2, .start .p3, .start .p4, .start .p5
+		animation: none
+	.lt_wave:before, .lt_wave:after
+		animation: none
+	.lt_wave
+		transition: none
+	.lt_cwrap .lt_value::after, .lt_cwrap .lt_value::before
+		transition: none
+
+// Skin Nazuaf — SATU-SATUNYA tempat aturan tampilan Nazuaf. Muat paling akhir
+// supaya menang atas base tanpa !important. Jangan taruh <style> inline di EJS lagi.
+// Pakai @import (bukan @use): @use wajib di baris atas file dan akan kalah urutan
+// dari aturan index.sass sendiri; @import di sini menyisipkan skin PALING AKHIR.
+@import "./theme/nazuaf"
