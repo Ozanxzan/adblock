@@ -1,0 +1,588 @@
+// Skin Nazuaf — tema visual situs (dark navy).
+// SATU-SATUNYA tempat aturan tampilan Nazuaf. File ini dimuat PALING AKHIR di
+// src/sass/index.sass, jadi menang atas base tanpa !important.
+// JANGAN taruh <style> inline di EJS lagi — itu penyebab #1 situs susah diedit.
+
+// ---------- Variabel ----------
+:root
+	--nz-bg: #09111f
+	--nz-panel: #111c2d
+	--nz-panel2: #152238
+	--nz-border: rgba(148, 163, 184, .15)
+	--nz-text: #f5f7fb
+	--nz-muted: #91a0b6
+	--nz-blue: #78a9ff
+	--nz-green: #39d98a
+
+// ---------- Layout ----------
+html
+	scroll-behavior: smooth
+
+html, body
+	max-width: 100%
+	overflow-x: hidden
+
+body
+	background: radial-gradient(circle at 50% -10%, rgba(76, 111, 255, .13), transparent 34rem), linear-gradient(180deg, #09111f 0%, #0a1220 100%)
+	color: var(--nz-text)
+
+main
+	max-width: 1120px
+	margin: 0 auto
+	padding: 10px 20px 60px
+
+// ---------- Hero ----------
+#m_test > section:first-child
+	padding-top: 18px
+
+.hero_head
+	text-align: center
+	max-width: 760px
+	margin: 0 auto 30px
+	padding: 18px 0 6px
+
+.hero_head:before
+	content: 'PRIVACY PROTECTION TEST'
+	display: inline-flex
+	align-items: center
+	padding: 8px 13px
+	border: 1px solid rgba(120, 169, 255, .22)
+	border-radius: 999px
+	background: rgba(120, 169, 255, .06)
+	color: #91b8ff
+	font-size: 11px
+	font-weight: 800
+	letter-spacing: 1px
+	box-shadow: 0 0 25px rgba(80, 120, 255, .06)
+
+// Titik hijau kecil di bawah pill. Dulu margin-left:-120px (hack) — kini titik
+// normal di tengah.
+.hero_head:after
+	content: ''
+	display: block
+	width: 6px
+	height: 6px
+	margin: 12px auto 0
+	border-radius: 50%
+	background: #39d98a
+
+.hero_head h1
+	font-size: clamp(34px, 6vw, 56px)
+	line-height: 1.03
+	letter-spacing: -2px
+	margin: 18px 0 12px
+
+.hero_head p
+	max-width: 690px
+	margin: auto
+	color: #9aa8bd
+	font-size: 15px
+	line-height: 1.7
+
+// ---------- Grid hero + liquid circle ----------
+.hero_test_grid
+	display: grid
+	grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr)
+	gap: 18px
+	align-items: stretch
+	padding: 24px
+	border: 1px solid var(--nz-border)
+	border-radius: 28px
+	background: linear-gradient(180deg, rgba(18, 30, 49, .92), rgba(12, 21, 36, .96))
+	box-shadow: 0 30px 80px rgba(0, 0, 0, .25)
+
+.lt_wrap
+	min-height: 360px
+	border-radius: 24px
+	border: 1px solid rgba(148, 163, 184, .11)
+	background: radial-gradient(circle at 50% 45%, rgba(78, 113, 255, .12), transparent 44%), #0c1728
+	box-shadow: inset 0 1px rgba(255, 255, 255, .03)
+
+.lt_circle
+	box-shadow: 0 0 0 1px rgba(120, 169, 255, .10), 0 0 80px rgba(75, 110, 255, .10)
+
+.lt_value
+	font-weight: 900
+
+.hero_test_grid ._f-center
+	display: flex
+	flex-direction: column
+	justify-content: center
+	gap: 16px
+
+// ---------- Tombol + hasil ----------
+#start_test
+	width: 100%
+	min-height: 60px
+	border-radius: 16px
+	border: 1px solid rgba(120, 169, 255, .35)
+	background: linear-gradient(135deg, #2b4777, #1b2e50)
+	color: #fff
+	font-size: 16px
+	font-weight: 850
+	box-shadow: 0 14px 35px rgba(0, 0, 0, .25)
+	transition: transform .18s ease, box-shadow .18s ease
+
+#start_test:hover
+	transform: translateY(-2px)
+	box-shadow: 0 18px 42px rgba(0, 0, 0, .32)
+
+#adb_test_r
+	width: 100%
+	box-sizing: border-box
+	border-radius: 18px
+	background: #0d1727
+	border: 1px solid var(--nz-border)
+	padding: 18px
+	box-shadow: none
+
+#adb_test_r > span
+	display: flex
+	align-items: center
+	gap: 9px
+	min-height: 28px
+	padding: 5px 0
+	color: #aeb9ca
+
+#adb_test_r svg
+	flex: 0 0 auto
+
+// ---------- Grid hasil tes ----------
+#adb_test
+	margin-top: 24px
+
+#adb_test > .grid
+	display: grid
+	grid-template-columns: minmax(0, 1fr)
+	gap: 18px
+
+#test
+	grid-column: 1 / -1
+	width: 100%
+	max-width: 100%
+	min-width: 0
+	box-sizing: border-box
+	overflow: hidden
+
+#test > *
+	max-width: 100%
+	min-width: 0
+	box-sizing: border-box
+
+#test .test
+	max-width: 100%
+	min-width: 0
+	box-sizing: border-box
+	overflow-wrap: anywhere
+	border-radius: 12px
+
+#test .test *
+	max-width: 100%
+	box-sizing: border-box
+
+// Warna status — lembut supaya teks tetap terbaca. Default fungsional
+// (var(--green)/var(--red)) ada di index.sass; skin ini yang tampil.
+#test .test.is-open
+	background: #163b2b
+	border-color: #245d45
+
+#test .test.is-blocked
+	background: #402323
+	border-color: #643333
+
+#test .test_block.is-open
+	background: #163b2b
+	border-color: #245d45
+
+#test .test_block.is-blocked
+	background: #402323
+	border-color: #643333
+
+// Status di LUAR #test (#ct_static, #ct_dynamic di #cf_wrap; #sfa_1, #sfa_2 di
+// #sl_wrap) — selector #test di atas tidak menjangkau mereka, jadi perlu aturan
+// tanpa ancestor #test. Tanpanya, .test_block{background:#0c1728} di bawah
+// menindih warna status (bug lama: hijau/merah tidak pernah tampil).
+.test_block.is-open
+	background: #163b2b
+	border-color: #245d45
+
+.test_block.is-blocked
+	background: #402323
+	border-color: #643333
+
+// ---------- Kartu ----------
+.test_card
+	height: 100%
+	box-sizing: border-box
+	margin: 0
+	border: 1px solid var(--nz-border)
+	border-radius: 20px
+	background: rgba(17, 28, 45, .82)
+	padding: 20px
+	box-shadow: none
+
+.test_card h2
+	font-size: 15px
+	margin: 0 0 17px
+	color: #edf2f9
+
+.test_block
+	border-radius: 14px
+	background: #0c1728
+	border: 1px solid rgba(148, 163, 184, .10)
+	padding: 15px
+	color: #c7d1df
+
+.test_card details
+	margin-top: 15px
+	color: #8d9bb0
+
+.test_card details summary
+	cursor: pointer
+	color: #aebbd0
+	font-size: 12px
+	font-weight: 700
+
+.test_card details .better_r
+	margin-top: 10px
+	border-radius: 12px
+	background: #0b1422
+
+// ---------- #sl_wrap (kategori Script dkk) ----------
+#sl_wrap
+	grid-column: 1 / -1
+	width: 100%
+	min-width: 0
+
+#adb_test > .grid > div:has(> #test)
+	grid-column: 1 / -1
+	width: 100%
+	min-width: 0
+
+#sl_wrap .row
+	display: grid
+	grid-template-columns: repeat(2, minmax(0, 1fr))
+	gap: 12px
+	margin: 0
+
+#sl_wrap .col-6
+	width: auto
+	min-width: 0
+	padding: 0
+
+#sl_wrap .test_card > div:last-child,
+#sl_wrap .test_card > div:last-child details,
+#sl_wrap > hr
+	display: none
+
+// ---------- ADPROBE: #cf_wrap ----------
+// Umpan tes kosmetik — tes mengukur offsetHeight elemen ini. HARUS tetap punya
+// tinggi walau tidak terlihat. JANGAN pakai display:none (dulu begitu, dan tes
+// kosmetik selalu lapor "blocked" palsu). Pola ini sama dengan .measuring di
+// base Sass: tetap di layout, di luar layar, tidak terlihat.
+#cf_wrap
+	position: fixed
+	top: -9999px
+	left: 0
+	width: 100vw
+	visibility: hidden
+
+// ---------- Info bar + footer ----------
+.notice_stack
+	display: none
+
+.seo_content
+	display: none
+
+.nazuaf-bottom
+	display: block
+	text-align: center
+	padding: 32px 0 10px
+	color: #687891
+	font-size: 11px
+
+.nazuaf-attribution
+	margin-bottom: 7px
+	color: #71819a
+	font-size: 10px
+	line-height: 1.5
+	letter-spacing: .05px
+	opacity: .8
+
+.nazuaf-license
+	margin-top: 5px
+	font-size: 9px
+	line-height: 1.3
+
+.nazuaf-license a
+	color: inherit
+	text-decoration: underline
+	text-underline-offset: 2px
+
+// ---------- Header / brand ----------
+// Markup brand sekarang statis di header.ejs (bukan ::before + script JS).
+.brand
+	display: inline-flex
+	align-items: center
+	gap: 10px
+	text-decoration: none
+	color: #fff
+
+.brand-mark
+	width: 32px
+	height: 32px
+	border-radius: 8px
+	background: #fff
+	color: #000
+	display: grid
+	place-items: center
+	font-weight: 900
+	font-size: 18px
+	line-height: 1
+
+.brand-name
+	font-size: 18px
+	font-weight: 800
+	color: #fff
+
+header nav > ul
+	display: flex
+	align-items: center
+	gap: 8px
+	margin-left: auto
+
+header nav > ul > li
+	display: block
+
+// Tombol ikon GitHub + ganti tema (40px)
+header nav a[aria-label="View project on GitHub (opens in new tab)"],
+header nav .theme-toggle
+	width: 40px
+	height: 40px
+	display: grid
+	place-items: center
+	border: 1px solid rgba(148, 163, 184, .25)
+	border-radius: 12px
+	background: rgba(17, 27, 45, .58)
+	color: #9aa9bf
+
+header nav a[aria-label="View project on GitHub (opens in new tab)"]:hover,
+header nav .theme-toggle:hover
+	transform: translateY(-1px)
+	border-color: rgba(120, 169, 255, .5)
+	background: rgba(31, 46, 68, .9)
+	color: #fff
+
+header nav a[aria-label="View project on GitHub (opens in new tab)"] svg,
+header nav .theme-toggle svg
+	width: 20px
+	height: 20px
+
+header nav a[aria-label="View project on GitHub (opens in new tab)"]
+	font-size: 0
+
+// ---------- Responsif 820px ----------
+@media (max-width: 820px)
+	main
+		width: 100%
+		max-width: 100%
+		padding: 8px 12px 42px
+		box-sizing: border-box
+		overflow-x: hidden
+
+	#m_test, #adb_test, #adb_test > .grid
+		width: 100%
+		max-width: 100%
+		min-width: 0
+		box-sizing: border-box
+
+	.hero_head
+		padding: 12px 4px 4px
+		margin-bottom: 20px
+
+	.hero_head h1
+		font-size: clamp(30px, 9vw, 42px)
+		line-height: 1.08
+		letter-spacing: -1.3px
+
+	.hero_head p
+		font-size: 14px
+		line-height: 1.55
+		padding: 0 6px
+
+	.hero_test_grid
+		grid-template-columns: 1fr
+		gap: 12px
+		padding: 12px
+		border-radius: 20px
+		overflow: hidden
+
+	.hero_test_grid ._f-center
+		padding: 4px 2px
+
+	.lt_wrap
+		min-height: 250px
+		border-radius: 18px
+
+	#start_test
+		min-height: 58px
+		font-size: 15px
+		border-radius: 15px
+
+	#adb_test_r
+		padding: 14px
+		border-radius: 16px
+
+	#adb_test_r > span
+		font-size: 14px
+
+	#sl_wrap .test_card
+		padding: 16px
+		border-radius: 18px
+
+	#sl_wrap .row
+		grid-template-columns: 1fr 1fr
+		gap: 10px
+
+	#sl_wrap .test_block
+		min-height: 54px
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		padding: 12px 8px
+		font-size: 13px
+
+	#test
+		overflow-x: hidden
+
+	#test .test
+		width: 100%
+		padding: 11px 12px
+		margin-left: 0
+		margin-right: 0
+
+	#test .test_wrapper, #test [class*="test"]
+		min-width: 0
+
+// ---------- Responsif 430px ----------
+@media (max-width: 430px)
+	main
+		padding-left: 9px
+		padding-right: 9px
+
+	.hero_test_grid
+		padding: 10px
+
+	.hero_head:before
+		font-size: 9px
+		padding: 7px 10px
+		letter-spacing: .8px
+
+	.hero_head h1
+		font-size: 31px
+
+	#sl_wrap .test_card
+		padding: 13px
+
+	#sl_wrap .row
+		gap: 8px
+
+	#sl_wrap .test_block
+		font-size: 12px
+		padding: 10px 6px
+
+	#test .test
+		padding: 10px
+		font-size: 13px
+
+	.brand
+		gap: 7px
+
+	.brand-mark
+		width: 30px
+		height: 30px
+		font-size: 17px
+
+	.brand-name
+		font-size: 17px
+
+	header nav a[aria-label="View project on GitHub (opens in new tab)"],
+	header nav .theme-toggle
+		width: 38px
+		height: 38px
+
+// ---------- Mode terang ----------
+// Dulu @media (prefers-color-scheme: light) — bentrok dengan themeManager yang
+// memakai data-theme. Kini ikut [data-theme="light"] supaya tombol tema yang
+// menentukan, bukan setting OS.
+[data-theme="light"] body
+	background: linear-gradient(180deg, #f6f8fb, #eef2f7)
+	color: #0f172a
+
+[data-theme="light"] main
+	background: transparent
+
+[data-theme="light"] .hero_head p
+	color: #475569
+
+[data-theme="light"] .hero_test_grid
+	background: linear-gradient(180deg, #ffffff, #f1f5f9)
+	border-color: rgba(15, 23, 42, .08)
+
+[data-theme="light"] .lt_wrap
+	background: radial-gradient(circle at 50% 45%, rgba(59, 130, 246, .08), transparent 44%), #f8fafc
+	border-color: rgba(15, 23, 42, .08)
+
+[data-theme="light"] .test_card
+	background: #ffffff
+	border-color: rgba(15, 23, 42, .08)
+
+[data-theme="light"] .test_card h2
+	color: #0f172a
+
+[data-theme="light"] .test_block
+	background: #f8fafc
+	border-color: rgba(15, 23, 42, .06)
+	color: #334155
+
+[data-theme="light"] #adb_test_r
+	background: #ffffff
+	border-color: rgba(15, 23, 42, .08)
+
+[data-theme="light"] #adb_test_r > span
+	color: #475569
+
+[data-theme="light"] #test .test
+	background: #dcfce7
+	border-color: #86efac
+	color: #14532d
+
+[data-theme="light"] #test .test.is-blocked
+	background: #fee2e2
+	border-color: #fca5a5
+
+[data-theme="light"] #test .test.is-open
+	background: #dcfce7
+	border-color: #86efac
+
+[data-theme="light"] .test_block.is-open
+	background: #dcfce7
+	border-color: #86efac
+
+[data-theme="light"] .test_block.is-blocked
+	background: #fee2e2
+	border-color: #fca5a5
+
+[data-theme="light"] .brand-name
+	color: #0f172a
+
+[data-theme="light"] .brand-mark
+	background: #0f172a
+	color: #fff
+
+[data-theme="light"] header nav a[aria-label="View project on GitHub (opens in new tab)"],
+[data-theme="light"] header nav .theme-toggle
+	background: rgba(255, 255, 255, .7)
+	border-color: rgba(15, 23, 42, .15)
+	color: #475569
